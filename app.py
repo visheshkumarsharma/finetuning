@@ -27,8 +27,6 @@ def translate_to_english(text, src_lang='auto'):
 vishesh_client = InferenceClient("imvishesh007/gemma-Code-Instruct-Finetune-test",
                                 token="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")
 
-madhavi_client = InferenceClient("007imvishesh/gemma-Code-Instruct-Finetune-test",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)
-
 rakesh_client = InferenceClient("bandi333/gemma-Code-Instruct-Finetune-test-v0.0",
                                 token="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")
 # Define models

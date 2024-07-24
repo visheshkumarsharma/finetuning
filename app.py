@@ -32,10 +32,7 @@ madhavi_client = InferenceClient("imvishesh007/gemma-Code-Instruct-Finetune-test
 rakesh_client = InferenceClient("bandi333/gemma-Code-Instruct-Finetune-test-v0.0",
                                 token="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")
 # Define models
-models = {
-    "vishesh_client": vishesh_client,
-    "rakesh_client": rakesh_client,      # Add your token and model for rakesh_client if needed,
-"madhavi_client": madhavi_client,      # Add your token and model for rakesh_client if needed}
+models = {"vishesh_client": vishesh_client,"rakesh_client": rakesh_client,"madhavi_client": madhavi_client}
 
 def process_client(client, df):
     x = ""

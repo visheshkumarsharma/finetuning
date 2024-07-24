@@ -32,8 +32,7 @@ rakesh_client = InferenceClient("bandi333/gemma-Code-Instruct-Finetune-test-v0.0
 # Define models
 models = {
     "vishesh_client": vishesh_client,
-    "rakesh_client": rakesh_client,      # Add your token and model for rakesh_client if needed
-    "madhavi_client": madhavi_client      # Add your token and model for madhavi_client if needed
+    "rakesh_client": rakesh_client,      # Add your token and model for rakesh_client if neede
 }
 
 def process_client(client, df):

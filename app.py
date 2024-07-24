@@ -24,16 +24,10 @@ def translate_to_english(text, src_lang='auto'):
     return translation.text
 
 # Initialize Hugging Face clients
-vishesh_client = InferenceClient("imvishesh007/gemma-Code-Instruct-Finetune-test",
-                                token="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")
-madhavi_client = InferenceClient("imvishesh007/gemma-Code-Instruct-Finetune-test",
-                                token="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")
-
-rakesh_client = InferenceClient("bandi333/gemma-Code-Instruct-Finetune-test-v0.0",
-                                token="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")
-# Define models
+vishesh_client = InferenceClient("imvishesh007/gemma-Code-Instruct-Finetune-test",token="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")
+madhavi_client = InferenceClient("imvishesh007/gemma-Code-Instruct-Finetune-test",token="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")
+rakesh_client = InferenceClient("bandi333/gemma-Code-Instruct-Finetune-test-v0.0",token="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")
 models = {"vishesh_client": vishesh_client,"rakesh_client": rakesh_client,"madhavi_client": madhavi_client}
-
 def process_client(client, df):
     x = ""
     for i in range(df.shape[0]):

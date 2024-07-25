@@ -82,7 +82,7 @@ def main():
 
             # Display final translated and cleaned output
             st.subheader("Final Translated and Cleaned Output")
-            st.dataframe(x)
+            st.write(x)
 
         except Exception as e:
             st.error(f"Error reading CSV file: {e}")

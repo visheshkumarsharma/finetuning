@@ -58,7 +58,7 @@ def process_client(client, df):
 def main():
     st.set_page_config(layout="wide", page_title="MODELS")
     image_URL="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfM34DG2u5fZI_pslFvrMpPKNNRBtbknBlVg&s"
-    st.sidebar.image(image_URL, width=500)
+    st.sidebar.image(image_URL, width=50)
     # Sidebar UI for uploading file and selecting model
     st.title("ATE TEST CODE GENERATION")
     st.sidebar.title("Model Selection and File Upload")

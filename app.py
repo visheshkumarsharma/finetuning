@@ -57,7 +57,7 @@ def process_client(client, df):
 
 def main():
     st.set_page_config(layout="wide", page_title="MODELS")
-    st.logo(link="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/HCL_Technologies_logo.svg/320px-HCL_Technologies_logo.svg.png")
+    st.logo(image, *,icon_image=None,link="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/HCL_Technologies_logo.svg/320px-HCL_Technologies_logo.svg.png")
     # Sidebar UI for uploading file and selecting model
     st.sidebar.title("Model Selection and File Upload")
     uploaded_f = st.sidebar.file_uploader("Upload your Excel file", type=["csv"])

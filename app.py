@@ -54,6 +54,7 @@ def process_client(client, df):
     return x
     """
 
+st.logo(link="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/HCL_Technologies_logo.svg/320px-HCL_Technologies_logo.svg.png")
 def main():
     st.set_page_config(layout="wide", page_title="MODELS")
 

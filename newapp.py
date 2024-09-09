@@ -24,7 +24,7 @@ def translate_to_english(text, src_lang='auto'):
     return translation.text
  
 # Initialize OpenAI client
-openai.api_key = "YOUR_OPENAI_API_KEY"  # Replace with your Azure OpenAI or OpenAI API key
+openai.api_key = "api_key"  # Replace with your Azure OpenAI or OpenAI API key
  
 def process_client(model_name, df):
     x = ""

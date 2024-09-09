@@ -4,6 +4,46 @@ import pandas as pd
 from googletrans import Translator
 import re
 import string
+import os
+import requests
+import base64
+ 
+# Configuration
+API_KEY = "YOUR_API_KEY"
+headers = {
+    "Content-Type": "application/json",
+    "api-key": API_KEY,
+}
+ 
+# Payload for the request
+payload = {
+  "messages": [
+    {
+      "role": "system",
+      "content": [
+        {
+          "type": "text",
+          "text": "You are an AI assistant that helps people find information."
+        }
+      ]
+    }
+  ],
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "max_tokens": 800
+}
+ 
+ENDPOINT = "https://genainorthcentralus.openai.azure.com/openai/deployments/gpt-4odeployment/chat/completions?api-version=2024-02-15-preview"
+ 
+# Send request
+try:
+    response = requests.post(ENDPOINT, headers=headers, json=payload)
+    response.raise_for_status()  # Will raise an HTTPError if the HTTP request returned an unsuccessful status code
+except requests.RequestException as e:
+    raise SystemExit(f"Failed to make the request. Error: {e}")
+ 
+# Handle the response as needed (e.g., print or process)
+print(response.json())
 
 # Function to convert each row in the dataframe
 def convert(row):
@@ -22,17 +62,7 @@ def translate_to_english(text, src_lang='auto'):
     translator = Translator()
     translation = translator.translate(text, src=src_lang, dest='en')
     return translation.text
-
-# Initialize Hugging Face clients
-vishesh_client = InferenceClient("imvishesh007/gemma-Code-Instruct-Finetune-test",token="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")
-madhavi_client = InferenceClient("imvishesh007/gemma-Code-Instruct-Finetune-test",token="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")
-rakesh_client = InferenceClient("bandi333/gemma-Code-Instruct-Finetune-test-v0.0",token="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")
-models = {
-    "vishesh_client": vishesh_client,
-    "rakesh_client": rakesh_client,      # Add your token and model for rakesh_client if needed
-    "madhavi_client": madhavi_client      # Add your token and model for madhavi_client if needed
-}
-def process_client(client, df):
+def process_client(response, df):
     x = ""
     options = df['english sentence'].tolist()
     z = st.radio('Select a sentence:', options)
@@ -84,11 +114,7 @@ def main():
             df['english sentence'] = df['english sentence'].apply(lambda x: promtg + x)
 
             # Process selected model
-            if selected_model in models and models[selected_model] is not None:
-                st.subheader("Interact with Hugging Face Model")
-                x = process_client(models[selected_model], df)
-            else:
-                st.warning(f"Model {selected_model} is not configured or available.")
+            
 
             # Translate and clean the final output
             x = translate_to_english(x)

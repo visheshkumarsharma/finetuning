@@ -29,5 +29,5 @@ def generate_response(prompt):
  
 # Display the GPT-4 response when user input is provided
 if user_input:
-    response = generate_response("generate c++ code using PS instrument, force all pins to 0V and then Force -0.010 mA to the pin under test LED2 and measure the voltage (MV)")
+    response = generate_response(user_input)
     st.write(response)

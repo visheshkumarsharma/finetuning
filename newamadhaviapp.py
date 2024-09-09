@@ -11,7 +11,7 @@ AZURE_DEPLOYMENT_NAME = "gpt-4odeployment"  # Replace with your deployment name
 openai.api_type = "azure"
 openai.api_key = AZURE_OPENAI_API_KEY
 openai.api_base = AZURE_OPENAI_ENDPOINT
-openai.api_version = "2023-05-15"  # Use the correct API version based on Azure's documentation
+openai.api_version = ""  # Use the correct API version based on Azure's documentation
  
 # Streamlit app title
 st.title("Azure GPT-4 Chatbot with Streamlit")

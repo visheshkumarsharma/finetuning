@@ -1,11 +1,11 @@
 import os
 import requests
 import base64
+import streamlit as st
  
 # Configuration
-API_KEY = "YOUR_API_KEY"
-IMAGE_PATH = "YOUR_IMAGE_PATH"
-encoded_image = base64.b64encode(open(IMAGE_PATH, 'rb').read()).decode('ascii')
+API_KEY = "b5d5b5ea2ebd471b88b631a34ab7d522"
+st.write("GPT4o CODE GENERATED")
 headers = {
     "Content-Type": "application/json",
     "api-key": API_KEY,
@@ -19,12 +19,12 @@ payload = {
       "content": [
         {
           "type": "text",
-          "text": "You are an AI assistant that helps people find information."
+          "text": "generate c++ code using PS instrument, force all pins to 0V and then Force -0.010 mA to the pin under test LED2 and measure the voltage (MV)"
         }
       ]
     }
   ],
-  "temperature": 0.7,
+  "temperature": 0.0,
   "top_p": 0.95,
   "max_tokens": 800
 }
@@ -39,4 +39,5 @@ except requests.RequestException as e:
     raise SystemExit(f"Failed to make the request. Error: {e}")
  
 # Handle the response as needed (e.g., print or process)
-print(response.json())
+content=response.json()
+st.write(content)

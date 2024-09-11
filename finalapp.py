@@ -8,7 +8,7 @@ import pandas as pd
 API_KEY = "b5d5b5ea2ebd471b88b631a34ab7d522"
 st.title("ATE TEST CODE GENERATION")
 st.sidebar.title("Model Selection and File Upload")
-uploaded_f = st.sidebar.file_uploader("Upload your Excel file", type=["csv"])
+'''uploaded_f = st.sidebar.file_uploader("Upload your Excel file", type=["csv"])
 def convert(row):
     s = row['Pin of Interest']
     v = row[s]
@@ -29,7 +29,7 @@ if uploaded_f is not None:
     # Add prefix to English sentences
     promtg = "code for the given requirement in cpp for the pin configuration test case"
     df['english sentence'] = df['english sentence'].apply(lambda x: promtg + x)
-print(df['english sentence'][0])
+print(df['english sentence'][0])'''
 headers = {
     "Content-Type": "application/json",
     "api-key": API_KEY,

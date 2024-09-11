@@ -13,22 +13,21 @@ def convert(row):
     v = row[s]
     return f"using PS instrument,force all pins to 0V and then Force -0.010 mA to the pin under test LED2 and measure the voltage (MV) with range of {row['Lower Limit']} and {row['Upper Limit']}."
 if uploaded_f is not None:
-        try:
-            df = pd.read_csv(uploaded_f)
-            # Display original dataframe
-            st.subheader("Original Test Case File")
-            st.dataframe(df)
-
-            # Convert dataframe to English sentences
-            df['english sentence'] = df.apply(convert, axis=1)
-
-            # Display dataframe with English conversion
-            st.subheader("Dataframe with English Conversion")
-            st.dataframe(df['english sentence'])
-
-            # Add prefix to English sentences
-            promtg = "code for the given requirement in cpp for the pin configuration test case"
-            df['english sentence'] = df['english sentence'].apply(lambda x: promtg + x)
+    df = pd.read_csv(uploaded_f)
+    # Display original dataframe
+    st.subheader("Original Test Case File")
+    st.dataframe(df)
+    
+    # Convert dataframe to English sentences
+    df['english sentence'] = df.apply(convert, axis=1)
+    
+    # Display dataframe with English conversion
+    st.subheader("Dataframe with English Conversion")
+    st.dataframe(df['english sentence'])
+    
+    # Add prefix to English sentences
+    promtg = "code for the given requirement in cpp for the pin configuration test case"
+    df['english sentence'] = df['english sentence'].apply(lambda x: promtg + x)
 headers = {
     "Content-Type": "application/json",
     "api-key": API_KEY,
@@ -62,5 +61,5 @@ except requests.RequestException as e:
     raise SystemExit(f"Failed to make the request. Error: {e}")
  
 # Handle the response as needed (e.g., print or process)
-content=response.text()
+content=response.text
 st.write(content)

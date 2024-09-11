@@ -42,7 +42,6 @@ except requests.RequestException as e:
 # Handle the response as needed (e.g., print or process)
 content=response.text
 content=list(content)
-content=content[0]
 print(content)
 print(type(content))
 st.write(content)

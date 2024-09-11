@@ -29,6 +29,7 @@ if uploaded_f is not None:
     # Add prefix to English sentences
     promtg = "code for the given requirement in cpp for the pin configuration test case"
     df['english sentence'] = df['english sentence'].apply(lambda x: promtg + x)
+z=df['english sentence'][0]
 headers = {
     "Content-Type": "application/json",
     "api-key": API_KEY,
@@ -42,7 +43,7 @@ payload = {
       "content": [
         {
           "type": "text",
-          "text": df["english sentence"][0]
+          "text": z
         }
       ]
     }

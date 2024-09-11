@@ -40,7 +40,6 @@ except requests.RequestException as e:
     raise SystemExit(f"Failed to make the request. Error: {e}")
  
 # Handle the response as needed (e.g., print or process)
-content=response.text
-print(content)
-print(type(content))
+content=response.json()
+content=result.get('choices', [{}])[0].get('message', {}).get('content', 'No content found')
 st.write(content)

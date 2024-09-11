@@ -2,6 +2,7 @@ import os
 import requests
 import base64
 import streamlit as st
+import pandas as pd
  
 # Configuration
 API_KEY = "b5d5b5ea2ebd471b88b631a34ab7d522"

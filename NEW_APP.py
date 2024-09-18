@@ -85,16 +85,15 @@ def main():
     if uploaded_f is not None:
         try:
             df = pd.read_csv(uploaded_f)
-
             # Display original dataframe
-            st.subheader("Original Test Case File")
+            st.subheader("ORIGINAL TEST CASE FILE")
             st.dataframe(df)
 
             # Convert dataframe to English sentences
             df['english sentence'] = df.apply(convert, axis=1)
 
             # Display dataframe with English conversion
-            st.subheader("Dataframe with English Conversion")
+            st.subheader("ORIGINAL TEST CASES WITH ENGLISH CONVERSION")
             st.dataframe(df['english sentence'])
 
             # Add prefix to English sentences
@@ -103,10 +102,10 @@ def main():
 
             # Process selected model
             
-            st.subheader("Interact with Model")
+            st.subheader("INTERACTION WITH MODEL")
             x = process_client(df)
             # Display final translated and cleaned output
-            st.subheader("Final Output")
+            st.subheader("GENERATED CODE IN C++")
             st.write(x)
 
         except Exception as e:
